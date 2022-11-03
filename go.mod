@@ -1,8 +1,9 @@
-module github.com/robrohan/go-web-template
+module github.com/robrohan/legendary-doodle
 
 go 1.18
 
 require (
+	github.com/aquilax/go-perlin v1.1.0
 	github.com/ardanlabs/conf v1.3.3
 	github.com/google/uuid v1.0.0
 	github.com/gorilla/mux v1.8.0
@@ -11,6 +12,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.6
 	github.com/pkg/errors v0.9.1
 	github.com/rubenv/sql-migrate v0.0.0-20200616145509-8d140a17f351
+	gitlab.com/gomidi/midi/v2 v2.0.25
 	golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421
 )
 

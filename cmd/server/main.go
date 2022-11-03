@@ -19,9 +19,9 @@ import (
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/pkg/errors"
-	"github.com/robrohan/go-web-template/internals/handlers"
-	"github.com/robrohan/go-web-template/internals/models"
-	"github.com/robrohan/go-web-template/internals/repository"
+	"github.com/robrohan/legendary-doodle/internals/handlers"
+	"github.com/robrohan/legendary-doodle/internals/models"
+	"github.com/robrohan/legendary-doodle/internals/repository"
 	"golang.org/x/oauth2"
 )
 
@@ -159,6 +159,8 @@ func run() error {
 		// Routes needed for auth
 		router.HandleFunc("/login", handleLogin(env, oauthConfig)).Methods("GET")
 		router.HandleFunc("/callback", handleCallback(env, oauthConfig, repo)).Methods("GET")
+		/////////////////////////
+		router.HandleFunc("/download", handlers.ServeMidiDownload(env, templates)).Methods("GET")
 		/////////////////////////
 		// Secure pages... "the app"
 		secure.HandleFunc("/home", handlers.ServePage(env, templates)).Methods("GET")

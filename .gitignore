@@ -7,4 +7,5 @@
 build/
 .env
 .env.production
+deploy.sh
 upload-temp/*

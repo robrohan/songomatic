@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/jmoiron/sqlx"
-	"github.com/robrohan/go-web-template/internals/models"
+	"github.com/robrohan/legendary-doodle/internals/models"
 )
 
 type DataRepository struct {
