@@ -1,0 +1,9 @@
+{{ template "header.html" . }} {{ template "nav_secure.html" . }}
+<h1>Activity</h1>
+
+<form action="/-/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="activityFile" />
+  <input type="submit" value="Upload" />
+</form>
+
+{{ template "footer.html" . }}

@@ -1,0 +1,10 @@
+.DS_Store
+*~
+\#*\#
+.\#*
+*.db
+*.db-journal
+build/
+.env
+.env.production
+upload-temp/*

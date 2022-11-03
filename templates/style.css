@@ -1,0 +1,39 @@
+/* Style overrides here */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.control {
+    margin: 1rem 0 1rem 0;
+    width: 50%;
+}
+
+nav {
+    background: silver;
+    padding: .5rem;
+}
+
+section div.landing {
+    display: grid;
+    justify-content: center;
+    grid-auto-columns: 1fr;
+    align-self: center; 
+}
+
+section div.landing > * {
+    text-align: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 1rem;
+}
