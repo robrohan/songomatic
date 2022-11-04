@@ -5,7 +5,7 @@ hash = $(shell git log --pretty=format:'%h' -n 1)
 include .env
 export
 
-DOCKER_CONTAINER=go-web-template
+DOCKER_CONTAINER=legendary-doodle
 
 # List all targets in thie file
 list:
