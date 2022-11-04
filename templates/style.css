@@ -11,8 +11,12 @@ body {
     width: 100%;
 }
 .control {
-    margin: 1rem 0 1rem 0;
-    width: 50%;
+    margin: 2rem 0 1rem 0;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
 }
 
 nav {
@@ -27,8 +31,13 @@ section div.landing {
     align-self: center; 
 }
 
-section div.landing > * {
+section div.landing h1 {
+    font-size: 6rem;
     text-align: center;
+}
+
+section div.landing form {
+    padding: 2rem;
 }
 
 footer {

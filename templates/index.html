@@ -2,11 +2,83 @@
 
 <section>
   <div class="landing">
-    <h1><!-- {{ .CompanyName }} --></h1>
     <div>
-      <img src="/static/plant-research.png"/>
+      <h1>🔬🎵 Songmatic 🎶🧪</h1>
+    </div>
+
+    <div>
+    <form action="/download" method="get">
+      <div class="control">
+        <label for="type">Type</label>
+        <select name="type">
+          <option value="0">Chords</option>
+          <option value="1">Drums</option>
+          <option value="2">Bass</option>
+          <option value="3">Melody</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label for="key">Key</label>
+        <select name="key">
+          <option value="0">C Major</option>
+          <option value="1">G Major</option>
+          <option value="2">D Major</option>
+          <option value="3">A Major</option>
+          <option value="4">E Major</option>
+          <option value="5">B Major</option>
+          <option value="6">F# Major</option>
+          <option value="7">F Major</option>
+          <option value="8">Bb Major</option>
+          <option value="9">Eb Major</option>
+          <option value="10">Ab Major</option>
+          <option value="11">Db Major</option>
+          <option value="12">Gb Major</option>
+        </select>
+      </div>
+      
+      <div class="control">
+        <label for="tempo">Tempo: <span id="tempoVal">0</span>bpm</label>
+        <input
+          name="tempo"
+          type="range"
+          id="tempo"
+          min="30"
+          max="190"
+          step="1"
+          oninput="rangeChange(this, '#tempoVal')"
+        />
+      </div>
+
+      <div class="control">
+        <label for="bars">Number of Bars: <span id="barsVal">0</span></label>
+        <input
+          name="bars"
+          type="range"
+          id="bars"
+          min="1"
+          max="16"
+          step="1"
+          oninput="rangeChange(this, '#barsVal')"
+        />
+      </div>
+
+      <div class="control">
+        <input type="submit" value="Generate" />
+      </div>
+    </form>
     </div>
   </div>  
 </section>
+
+<script>
+  function rangeChange(iRange, idOut) {
+    const o = document.querySelector(idOut);
+    o.innerText = iRange.value;
+  }
+  rangeChange(document.querySelector('#tempo'), '#tempoVal');
+  rangeChange(document.querySelector('#bars'), '#barsVal');
+</script>
+
 
 {{ template "footer.html" . }}

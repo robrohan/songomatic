@@ -317,14 +317,7 @@ func RandMidiRange(min int, max int) uint8 {
 	return uint8(v)
 }
 
-func GenerateScale() Scale {
-	max := 12
-	min := 0
-
-	v := rand.Intn(max-min) + min
-
-	wantKey := v
-
+func GenerateScale(wantKey int) Scale {
 	if wantKey > 12 {
 		panic("Not enough notes for that")
 	}
@@ -362,59 +355,59 @@ func GenerateScale() Scale {
 	return Scale{scale, uint8(numSharps), useFlats}
 }
 
-func DisplayModes() {
+// func DisplayModes() {
 
-	scale := GenerateScale()
+// 	scale := GenerateScale()
 
-	d, _, s := ScaleDegrees(Ionian)
-	fmt.Printf("\nIonian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
+// 	d, _, s := ScaleDegrees(Ionian)
+// 	fmt.Printf("\nIonian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
 
-	d, _, s = ScaleDegrees(Dorian)
-	fmt.Printf("\nDorian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
+// 	d, _, s = ScaleDegrees(Dorian)
+// 	fmt.Printf("\nDorian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
 
-	d, _, s = ScaleDegrees(Phrygian)
-	fmt.Printf("\nPhrygian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
+// 	d, _, s = ScaleDegrees(Phrygian)
+// 	fmt.Printf("\nPhrygian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
 
-	d, _, s = ScaleDegrees(Lydian)
-	fmt.Printf("\nLydian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
+// 	d, _, s = ScaleDegrees(Lydian)
+// 	fmt.Printf("\nLydian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
 
-	d, _, s = ScaleDegrees(Mixolydian)
-	fmt.Printf("\nMixolydian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
+// 	d, _, s = ScaleDegrees(Mixolydian)
+// 	fmt.Printf("\nMixolydian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
 
-	d, _, s = ScaleDegrees(Aeolian)
-	fmt.Printf("\nAeolian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
+// 	d, _, s = ScaleDegrees(Aeolian)
+// 	fmt.Printf("\nAeolian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
 
-	d, _, s = ScaleDegrees(Locrian)
-	fmt.Printf("\nLocrian\n")
-	for i := 0; i < 7; i++ {
-		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
-	}
-	fmt.Printf("\n")
-}
+// 	d, _, s = ScaleDegrees(Locrian)
+// 	fmt.Printf("\nLocrian\n")
+// 	for i := 0; i < 7; i++ {
+// 		fmt.Printf("%v%v (%v) | ", scale.Notes[i], s[i], d[i])
+// 	}
+// 	fmt.Printf("\n")
+// }
 
 // Generate one bar of music with 16th note fidelity
 func randomBarEvents(scale Scale, jazz bool) BarEvents {
