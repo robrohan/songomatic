@@ -15,3 +15,20 @@ docker run -p 8080:3000 robrohan/songomatic
 ```
 
 then browse to http://localhost:3000
+
+### Ansible Example
+
+```yml
+- name: Start the songomatic container
+  community.docker.docker_container:
+    name: songomatic
+    image: robrohan/songomatic
+    state: started
+    restart: true
+    env:
+      WB_DB_DRIVER: sqlite3
+      WB_DB_CONNECTION: main.db
+      WB_DB_POST: "PRAGMA synchronous = OFF;PRAGMA journal_mode = MEMORY;PRAGMA cache_size = -16000"
+    ports:
+      - "8080:3000"
+```
