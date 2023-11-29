@@ -40,6 +40,9 @@ build.docker: build
 start.docker:
 	docker run --env-file=.env.production -p 8080:3000 $(DOCKER_CONTAINER)
 
+push.docker:
+	docker push $(DOCKER_CONTAINER)
+
 # Grab a base css that styles form elements with some basic style
 fetch_base_css:
 	curl https://raw.githubusercontent.com/robrohan/pho-ui/main/src/pho-ui.css > templates/pho-ui.css

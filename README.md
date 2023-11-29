@@ -8,8 +8,10 @@ Songomatic currently does not use AI, it is akin to rolling a set of dice to cre
 
 ## Running
 
-Using a different environment variable set for prod
+You can either check the code out and build it yourself (see the `Makefile`), or you can just run the [docker container](https://hub.docker.com/repository/docker/robrohan/songomatic/general) if you like.
 
 ```bash
-docker run --env-file=.env.production -p 8080:3000 robrohan/songomatic
+docker run -p 8080:3000 robrohan/songomatic
 ```
+
+then browse to http://localhost:3000
