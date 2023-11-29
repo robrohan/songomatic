@@ -1,47 +1,15 @@
-# Go Web Template
+# Songomatic
 
-This is base template for doing spikes for smaller applications. It uses the following:
+Songomatic is midi tune / drum loop generator to help with music composition inspiration. What songomatic generates is almost never useful by itself, but is intended to be something you use and edit - maybe to try something you would never have thought to try. It helps get you over the "blank page" syndrome.
 
-- Golang Templates for UI
-- sqlite3 for datastore (can use Postgres)
-- Generic oauth2 login (tested with Google)
+Songomatic currently does not use AI, it is akin to rolling a set of dice to create melodies and drum loops.
 
-## Quick Start
+![screen shot](docs/screen.png)
 
-Copy the `.env.template` file and change any values you like. You can see the possible values by looking at `internals/models/config.go`.
+## Running
 
-Once the settings are in place you can do:
+Using a different environment variable set for prod
 
+```bash
+docker run --env-file=.env.production -p 8080:3000 robrohan/songomatic
 ```
-make start
-```
-
-and then browse to `http://localhost:3000`.
-
-```
-.
-├── cmd
-│   └── server               <= Main entry point
-├── docker-compose.yaml
-├── Dockerfile
-├── internals                <= Your App code
-│   ├── handlers             <= HTTP handlers
-│   ├── models               <= App structs
-│   └── repository           <= Database queries
-├── migrations               <= SQL migrations
-│   └── 000000-init.sql
-├── static                   <= Images, css, etc
-│   └── plant-research.png
-├── templates                <= HTML Pages
-│   └── home.html
-└── upload-temp              <= For uploaded files
-
-```
-
-## OAuth2 Setup (Google)
-
-[Setup on Google Console](https://console.cloud.google.com/apis/dashboard)
-
-## sqlite3 vs Postgres
-
-The code can support both sqlite3 or postgres. By default it uses sqlite3, but if you look at `start_db` in the Makefile and the example values in `.env.template` you can see how to get Postgres working.

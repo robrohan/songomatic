@@ -5,7 +5,7 @@ hash = $(shell git log --pretty=format:'%h' -n 1)
 include .env
 export
 
-DOCKER_CONTAINER=songomatic
+DOCKER_CONTAINER=robrohan/songomatic
 
 # List all targets in thie file
 list:
@@ -36,11 +36,11 @@ build: clean
 build.docker: build
 	docker build -t $(DOCKER_CONTAINER) .
 
-#	Using a different enviroment variable set for prod
+# Using a different enviroment variable set for prod
 start.docker:
 	docker run --env-file=.env.production -p 8080:3000 $(DOCKER_CONTAINER)
 
-#	Grab a base css that styles form elements with some basic style
+# Grab a base css that styles form elements with some basic style
 fetch_base_css:
 	curl https://raw.githubusercontent.com/robrohan/pho-ui/main/src/pho-ui.css > templates/pho-ui.css
 
