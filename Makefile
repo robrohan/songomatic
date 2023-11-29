@@ -34,14 +34,14 @@ build: clean
 	cp -R migrations build/
 
 build.docker: build
-	docker build -t $(DOCKER_CONTAINER) .
+	docker build -t $(DOCKER_CONTAINER):$(hash) .
 
 # Using a different enviroment variable set for prod
 start.docker:
-	docker run --env-file=.env.production -p 8080:3000 $(DOCKER_CONTAINER)
+	docker run --env-file=.env.production -p 8080:3000 $(DOCKER_CONTAINER):$(hash)
 
 push.docker:
-	docker push $(DOCKER_CONTAINER)
+	docker push $(DOCKER_CONTAINER):$(hash)
 
 # Grab a base css that styles form elements with some basic style
 fetch_base_css:
